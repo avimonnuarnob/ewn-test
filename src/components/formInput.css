@@ -1,0 +1,39 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  min-width: 20rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 600px) {
+  .formInput {
+    min-width: 100%;
+  }
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  padding-block: 1rem;
+  border: 0;
+  border-bottom: 1px solid gray;
+  appearance: none;
+}
+
+input + span {
+  font-size: 0.75rem;
+  color: red;
+  display: none;
+}
+
+input:invalid[data-focused='true'] {
+  border-bottom: 1px solid red;
+}
+
+input:invalid[data-focused='true'] ~ span {
+  display: block;
+}
+
+input:focus {
+  outline: none;
+}

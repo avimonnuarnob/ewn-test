@@ -1,0 +1,28 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab {
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: palevioletred;
+  transition: 300ms ease-in;
+
+  opacity: 0;
+  bottom: 0.25rem;
+}
+
+.tab.active::after {
+  opacity: 1;
+  bottom: 0;
+}
