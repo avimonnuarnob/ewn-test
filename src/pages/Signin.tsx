@@ -6,6 +6,7 @@ import FormInput from '../components/FormInput';
 import Modal from '../components/Modal';
 import { useAuth } from '../context/AuthContext';
 import useModal from '../hooks/useModal';
+import { AuthContenxtValueType } from '../types/AuthTypes';
 
 function Signin() {
   const [values, setValues] = useState<{
@@ -49,7 +50,11 @@ function Signin() {
     try {
       setError('');
       setLoading(true);
-      await logIn(data.get('username'), data.get('password'));
+      if (logIn)
+        await logIn(
+          data.get('username') as string /* ? */,
+          data.get('password') as string
+        );
     } catch (signinError) {
       setError('Failed to Sign in');
     }

@@ -4,6 +4,7 @@ function useModal() {
   const [isOpen, setisOpen] = useState(false);
 
   const toggle = () => {
+    console.log('hello');
     setisOpen(!isOpen);
   };
 

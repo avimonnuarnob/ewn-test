@@ -53,13 +53,14 @@ function SignUp() {
 
     try {
       setLoading(true);
-      await signUp({
-        email: data.get('email'),
-        password: data.get('password'),
-        firstName: data.get('username'),
-      });
+      if (signUp)
+        await signUp({
+          email: data.get('email') as string,
+          password: data.get('password') as string,
+          username: data.get('username') as string,
+        });
     } catch (signupError) {
-      setError('something went wrong');
+      if (setError) setError('something went wrong');
     }
     setLoading(false);
   };
